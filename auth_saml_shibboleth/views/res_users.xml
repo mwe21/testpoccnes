@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='access_rights']" position="after">
+                    <page string="SAML">
+                        <group>
+                            <field name="saml_nameid"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <template id="auth_saml_shibboleth.login_layout_inherit" name="Login Layout SAML" inherit_id='website.login_layout' priority="20" >
+            <xpath expr="//div[hasclass('oe_website_login_container')]" position="before">
+                <center>
+                    <br/>
+                    <div class="clearfix oe_login_buttons" id='button_saml'>
+                        <button type="submit" onclick="location.href='/shibboleth/';" class="btn btn-primary">Log in with SAML</button>
+                    </div>
+                    <br/>
+                </center>
+            </xpath>
+        </template>
+    </data>
+</odoo>
