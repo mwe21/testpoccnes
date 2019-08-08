@@ -5,7 +5,7 @@ from odoo import models, api, fields
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    saml_nameid = fields.Char('SAML name id', readonly=True, groups='ucl_contact.group_crm_admin')
+    saml_nameid = fields.Char('SAML name id', readonly=True,)
 
     @api.model
     def _check_credentials(self, password):
