@@ -15,11 +15,11 @@
     "contactPerson": {
         "technical": {
             "givenName": "technical_name",
-            "emailAddress": "ucl@eodoo.com"
+            "emailAddress": "altran@eodoo.com"
         },
         "support": {
             "givenName": "support_name",
-            "emailAddress": "ucl@eodoo.com"
+            "emailAddress": "altran@eodoo.com"
         }
     },
     "organization": {

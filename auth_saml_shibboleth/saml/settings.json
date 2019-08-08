@@ -2,13 +2,13 @@
     "strict": true,
     "debug": true,
     "sp": {
-        "entityId": "https://psbe-ucl.odoo.com/shibboleth/",
+        "entityId": "https://mwe21-testpoccnes.odoo.com/shibboleth/",
         "assertionConsumerService": {
-            "url": "https://psbe-ucl.odoo.com/shibboleth/?acs",
+            "url": "https://mwe21-testpoccnes.odoo.com/shibboleth/?acs",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
         },
         "singleLogoutService": {
-            "url": "https://psbe-ucl.odoo.com/shibboleth/?sls",
+            "url": "https://mwe21-testpoccnes.odoo.com/shibboleth/?sls",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "NameIDFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
@@ -16,15 +16,15 @@
         "privateKey": ""
     },
     "idp": {
-        "entityId": "https://idp.uclouvain.be/idp/shibboleth",
+        "entityId": "https://sso.cnes.fr",
         "singleSignOnService": {
-            "url": "https://idp.uclouvain.be/idp/profile/SAML2/Redirect/SSO",
+            "url": "https://sso.cnes.fr/saml/idp/profile/redirectorpost/sso",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "singleLogoutService": {
-            "url": "https://app.onelogin.com/trust/saml2/http-redirect/slo/<onelogin_connector_id>",
+            "url": "https://sso.cnes.fr/saml/idp/profile/post/sls",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
-        "x509cert": ""
+        "x509cert": "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"
     }
 }
