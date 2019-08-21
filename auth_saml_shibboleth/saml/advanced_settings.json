@@ -1,13 +1,13 @@
 {
     "security": {
-        "nameIdEncrypted": true,
+        "nameIdEncrypted": false,
         "authnRequestsSigned": false,
         "logoutRequestSigned": false,
         "logoutResponseSigned": false,
         "signMetadata": false,
         "wantMessagesSigned": false,
         "wantAssertionsSigned": false,
-        "wantNameIdEncrypted": true,
+        "wantNameIdEncrypted": false,
         "metadataValidUntil": "2050-06-26T20:00:00Z",
         "metadataCacheDuration": null,
         "signatureAlgorithm": "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
