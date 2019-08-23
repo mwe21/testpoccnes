@@ -9,7 +9,9 @@ from onelogin.saml2.auth import OneLogin_Saml2_Auth
 from onelogin.saml2.settings import OneLogin_Saml2_Settings
 
 # from odoo.modules.registry import RegistryManager
+import logging
 
+logger = logging.getLogger(__name__)
 
 class AuthSamlShibboleth(http.Controller):
     def init_saml_auth(self, req):
@@ -52,11 +54,19 @@ class AuthSamlShibboleth(http.Controller):
             auth = self.init_saml_auth(req)
         except Exception as e:
             url = "/web/login?error=" + e
+            logger.warning(
+                'Exception : %s',
+                e
+            )
             return werkzeug.utils.redirect(url)
 
         if 'acs' in data.keys():
             auth.process_response()
             errors = auth.get_errors()
+            logger.warning(
+                'Errors : %s',
+                errors
+            )
             if not errors:
                 if auth.is_authenticated():
                     attrs = auth.get_attributes()
