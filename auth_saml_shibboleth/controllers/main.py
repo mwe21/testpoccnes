@@ -71,6 +71,7 @@ class AuthSamlShibboleth(http.Controller):
                 'Errors : %s',
                 errors
             )
+            logger.warning("%s", auth.get_last_error_reason())
             if not errors:
                 if auth.is_authenticated():
                     attrs = auth.get_attributes()
@@ -91,6 +92,7 @@ class AuthSamlShibboleth(http.Controller):
                 else:
                     url = "/web/login?error=You are not authenticated"
             else:
+
                 url = "/web/login?error=" + str(errors)
             return werkzeug.utils.redirect(url)
         else:
