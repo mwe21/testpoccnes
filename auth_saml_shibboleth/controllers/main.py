@@ -13,8 +13,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-import http.client
-http.client.HTTPConnection.debuglevel = 1
+import http.client as http_client
+http_client.HTTPConnection.debuglevel = 1
 
 
 class AuthSamlShibboleth(http.Controller):
