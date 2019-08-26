@@ -1,6 +1,7 @@
 {
     "security": {
         "nameIdEncrypted": false,
+        "wantAttributeStatement": false
         "authnRequestsSigned": false,
         "logoutRequestSigned": false,
         "logoutResponseSigned": false,
