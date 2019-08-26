@@ -79,6 +79,10 @@ class AuthSamlShibboleth(http.Controller):
                         'Attrs : %s',
                         attrs
                     )
+                    logger.warning(
+                        'Auth : %s',
+                        auth
+                    )
                     login = attrs['urn:oid:1.3.6.1.4.1.5923.1.1.1.6'][0]
                     fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
                     fgs = '%08d' % int(fgs)
