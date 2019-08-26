@@ -57,10 +57,10 @@ class AuthSamlShibboleth(http.Controller):
         try:
             auth = self.init_saml_auth(req)
         except Exception as e:
-            url = "/web/login?error=" + e
+            url = "/web/login?error=" + str(e)
             logger.warning(
                 'Exception : %s',
-                e
+                str(e)
             )
             return werkzeug.utils.redirect(url)
 
