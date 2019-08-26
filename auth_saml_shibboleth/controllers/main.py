@@ -13,6 +13,10 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+import http.client
+http.client.HTTPConnection.debuglevel = 1
+
+
 class AuthSamlShibboleth(http.Controller):
     def init_saml_auth(self, req):
         custom_path = request.env['ir.config_parameter'].sudo().get_param("auth_saml.path")
