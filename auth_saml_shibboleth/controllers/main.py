@@ -90,7 +90,7 @@ class AuthSamlShibboleth(http.Controller):
                     login = name_id
                     # fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
                     # fgs = '%08d' % int(fgs)
-                    user = request.env['res.users'].sudo().search([('login', '=', login)])
+                    user = request.env['res.users'].sudo().search([('login', 'ilike', login)])
                     if user:
                         user.write({'saml_nameid': name_id})
                     else:
