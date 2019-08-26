@@ -76,6 +76,7 @@ class AuthSamlShibboleth(http.Controller):
                 if auth.is_authenticated():
                     attrs = auth.get_attributes()
                     logger.warning("Object: %s", auth.__dict__)
+                    logger.warning("Object: %s", dir(auth))
                     logger.warning(
                         'Attrs : %s',
                         attrs
