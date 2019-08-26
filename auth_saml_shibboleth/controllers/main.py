@@ -75,7 +75,9 @@ class AuthSamlShibboleth(http.Controller):
             if not errors:
                 if auth.is_authenticated():
                     attrs = auth.get_attributes()
-                    logger.warning("Object: %s", auth.__dict__)
+                    name_id = auth.get_nameid()
+                    logger.warning("Nameid: %s", name_id)
+                    # logger.warning("Object: %s", auth.__dict__)
                     logger.warning("Object: %s", dir(auth))
                     logger.warning(
                         'Attrs : %s',
@@ -86,8 +88,8 @@ class AuthSamlShibboleth(http.Controller):
                         auth
                     )
                     login = attrs['urn:oid:1.3.6.1.4.1.5923.1.1.1.6'][0]
-                    fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
-                    fgs = '%08d' % int(fgs)
+                    # fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
+                    # fgs = '%08d' % int(fgs)
                     user = request.env['res.users'].sudo().search([('login', '=', login)])
                     name_id = auth.get_nameid()
                     if user:
