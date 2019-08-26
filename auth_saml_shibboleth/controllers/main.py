@@ -87,18 +87,17 @@ class AuthSamlShibboleth(http.Controller):
                         'Auth : %s',
                         auth
                     )
-                    login = attrs['urn:oid:1.3.6.1.4.1.5923.1.1.1.6'][0]
+                    login = name_id
                     # fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
                     # fgs = '%08d' % int(fgs)
                     user = request.env['res.users'].sudo().search([('login', '=', login)])
-                    name_id = auth.get_nameid()
                     if user:
                         user.write({'saml_nameid': name_id})
                     else:
-                        user = self._create_user(fgs, login, name_id)
-                        if not user:
-                            url = "/web/login?error=Your account doesn\'t exist in our database, please contact the administrator"
-                            return werkzeug.utils.redirect(url)
+                        # # user = self._create_user(fgs, login, name_id)
+                        # if not user:
+                        url = "/web/login?error=Your account doesn\'t exist in our database, please contact the administrator"
+                        return werkzeug.utils.redirect(url)
                     request.env.cr.commit()
                     return login_and_redirect(request.env.cr.dbname, login, name_id, redirect_url=data.get('RelayState') or '/')
                 else:
