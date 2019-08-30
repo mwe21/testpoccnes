@@ -88,14 +88,11 @@ class AuthSamlShibboleth(http.Controller):
                         auth
                     )
                     login = name_id.lower()
-                    # fgs = attrs.get('urn:oid:2.16.840.1.113730.3.1.3')[0]
-                    # fgs = '%08d' % int(fgs)
+
                     user = request.env['res.users'].sudo().search([('login', 'ilike', login)])
                     if user:
                         user.write({'saml_nameid': name_id})
                     else:
-                        # # user = self._create_user(fgs, login, name_id)
-                        # if not user:
                         url = "/web/login?error=Your account doesn\'t exist in our database, please contact the administrator"
                         return werkzeug.utils.redirect(url)
                     request.env.cr.commit()
