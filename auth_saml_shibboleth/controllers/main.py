@@ -105,7 +105,7 @@ class AuthSamlShibboleth(http.Controller):
             return werkzeug.utils.redirect(url)
         else:
             self.prepare_request(data, web_base)
-            return_to = data.get('return_to') or '/'
+            return_to = data.get('return_to') or '/web'
             url = auth.login(return_to=return_to)
             return werkzeug.utils.redirect(url)
 
