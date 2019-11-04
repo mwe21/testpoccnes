@@ -3,7 +3,7 @@
     <data noupdate='1'>
         <record id="auth_saml_path" model="ir.config_parameter">
             <field name="key">auth_saml.path</field>
-            <field name="value">~/saml/</field>
+            <field name="value">~/src/user/auth_saml_shibboleth/saml</field>
         </record>
     </data>
 </odoo>

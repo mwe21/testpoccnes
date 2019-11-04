@@ -1,6 +1,6 @@
 {
     'name': 'Authentication SAML Shibboleth',
-    'version': '0.3',
+    'version': '0.4',
     'category': 'Authentication',
     'summary': 'Authentication SAML Shibboleth',
     'description': """
